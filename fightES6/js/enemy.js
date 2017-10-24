@@ -1,16 +1,14 @@
 
 
-//敌机： 构造函数（类）
+//敌机：
 class Enemy extends Base{
-	
-	//属性
 	constructor(type) {
 		super();
 	    this.ele = null;
 		this.hp = 1;
 		this.speed = 6;
-		this.dieImgs = []; //爆炸时的动画图片
-		this.score = 10; //分数
+		this.dieImgs = []; 
+		this.score = 10; 
 		this.type = type;
 	}
 	
