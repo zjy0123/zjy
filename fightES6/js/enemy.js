@@ -16,12 +16,9 @@ class Enemy extends Base{
 	//init：初始化方法
 	init(){
 		this.ele = document.createElement("div");
-		gameEngine.ele.appendChild(this.ele);
-		
+		gameEngine.ele.appendChild(this.ele);		
 		//当敌机节点添加到页面上的同时，也将敌机对象添加到数组allEnemys中
-		gameEngine.allEnemys.push(this);
-		
-		
+		gameEngine.allEnemys.push(this);	
 		switch(this.type){
 			//大型敌机
 			case this.Enemy_Type_Large:

@@ -22,7 +22,7 @@ let myPlane = {
 	//开火,发射子弹
 	fire: function(){
 		
-		setInterval(function(){
+		setInterval(()=>{
 			
 			//创建子弹对象
 			let bullet = new Bullet();
@@ -35,14 +35,14 @@ let myPlane = {
 	//可以拖拽
 	canMove: function(){
 		
-		this.ele.onmousedown = function(e){
+		this.ele.onmousedown = (e)=>{
 			e = e || event;
 			e.preventDefault();
 			
 			let disx = e.offsetX;
 			let disy = e.offsetY;
 			
-			document.onmousemove = function(e){
+			document.onmousemove = (e)=>{
 				e = e || event;
 				let x = e.pageX - disx - gameEngine.ele.offsetLeft;
 				if (x <= 0) {
@@ -54,7 +54,7 @@ let myPlane = {
 				myPlane.ele.style.left = x + "px";
 				myPlane.ele.style.top = e.pageY - disy + "px";
 			}
-			document.onmouseup = function(){
+			document.onmouseup = ()=>{
 				document.onmousemove = document.onmouseup = null;
 			}
 		}

@@ -71,7 +71,7 @@ let gameEngine = {
 		//动画
 		let imgs = ["images2/loading1.png", "images2/loading2.png", "images2/loading3.png"]
 		let i = 0;
-		let timer = setInterval(function(){
+		let timer = setInterval(()=>{
 			if (i >= 5) {
 				clearInterval(timer); //停止动画
 				gameEngine.ele.removeChild(logo); //删除logo节点
@@ -91,7 +91,7 @@ let gameEngine = {
 		let xspeed = 0;
 		let yspeed = 0;
 		
-		onkeydown = function(e){
+		onkeydown = (e)=>{
 			e = e || event;
 			
 			if (e.keyCode==37) { //左
@@ -107,7 +107,7 @@ let gameEngine = {
 				yspeed = 10;
 			}
 		}
-		onkeyup = function(e){
+		onkeyup = (e)=>{
 			e = e || event;
 			
 			if (e.keyCode==37 || e.keyCode==39 ) {
@@ -118,7 +118,7 @@ let gameEngine = {
 			}
 			
 		}
-		setInterval(function(){
+		setInterval(()=>{
 			let x = myPlane.ele.offsetLeft + xspeed;
 			
 			if (x <= 0) {
@@ -138,7 +138,7 @@ let gameEngine = {
 	createEnemy: function(){
 		
 		//随机创建大型飞机
-		setInterval(function(){
+		setInterval(()=>{
 			let flag = Math.random()>0.5 ? true : false;
 			if (flag) {
 				let enemy = new Enemy(Enemy.prototype.Enemy_Type_Large);
@@ -147,7 +147,7 @@ let gameEngine = {
 		}, 6000);
 		
 		//随机创建中型飞机
-		setInterval(function(){
+		setInterval(()=>{
 			let flag = Math.random()>0.5 ? true : false;
 			if (flag) {
 				let enemy = new Enemy(Enemy.prototype.Enemy_Type_Middle);
@@ -156,7 +156,7 @@ let gameEngine = {
 		}, 3000);
 		
 		//随机创建小型飞机
-		setInterval(function(){
+		setInterval(()=>{
 			let flag = Math.random()>0.5 ? true : false;
 			if (flag) {
 				let enemy = new Enemy(Enemy.prototype.Enemy_Type_Small);
@@ -169,7 +169,7 @@ let gameEngine = {
 	crash: function(){
 		
 		//每隔30毫秒检测一次碰撞
-		let timer = setInterval(function(){
+		let timer = setInterval(()=>{
 			
 			for (let i=0; i<gameEngine.allEnemys.length; i++) { //遍历敌机数组
 				
@@ -210,7 +210,7 @@ let gameEngine = {
 	//移动背景图
 	moveBackground: function(){
 		let y = 0;
-		setInterval(function(){
+		setInterval(()=>{
 			gameEngine.ele.style.backgroundPositionY = y++ + "px";
 		}, 30);
 
